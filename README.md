@@ -1,5 +1,3 @@
-# Agentica 2.0 - Team 24
-
 ## AI-Powered Automatic Test Case Generator
 
 TestGen AI is a full-stack platform that generates automated test cases from:
