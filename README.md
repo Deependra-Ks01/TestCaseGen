@@ -250,7 +250,7 @@ Use the sample scenarios in `demo_samples.md` for quick validation of:
 
 ## Team
 
-- Leader: Alok Kumar Das
+- Alok Kumar Das
 - Deependra Kumar Singh
 - Dharmendra Gora
 - Jyotinder Yadav
