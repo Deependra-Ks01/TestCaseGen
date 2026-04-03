@@ -51,21 +51,21 @@ export default function SignupPage({ onAuth }) {
       <div className="auth-shell">
         <div className="auth-layout">
           <div className="auth-copy">
-            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--neon-cyan)]" style={{ textShadow: '0 0 10px rgba(6,182,212,0.4)' }}>
-              TestGen AI — Code Quest
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+              TestGen Platform
             </div>
             <h1 className="mt-4 font-heading text-6xl leading-none text-[var(--text-strong)]">
-              Begin Your Quest.
+              Create a new workspace.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted)]">
-              Forge a warrior identity. Level up by generating tests, healing bugs, and exporting CI pipelines.
+              Set up your account to start generating tests, reviewing quality, repairing failures, and exporting workflows.
             </p>
           </div>
 
           <div className="auth-card">
             <div className="auth-header">
-              <h2 className="auth-title">🛡️ Create Account</h2>
-              <p className="auth-subtitle">Begin your journey as a test warrior.</p>
+              <h2 className="auth-title">Create Account</h2>
+              <p className="auth-subtitle">Create access for your TestGen workspace.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
@@ -73,13 +73,13 @@ export default function SignupPage({ onAuth }) {
 
               <div className="auth-field">
                 <label className="auth-label" htmlFor="signup-username">
-                  Warrior Name
+                  Name
                 </label>
                 <input
                   id="signup-username"
                   className="auth-input"
                   type="text"
-                  placeholder="Choose your identity"
+                  placeholder="Choose a workspace name"
                   value={form.username}
                   onChange={(e) => update('username', e.target.value)}
                   autoComplete="username"
@@ -88,7 +88,7 @@ export default function SignupPage({ onAuth }) {
 
               <div className="auth-field">
                 <label className="auth-label" htmlFor="signup-email">
-                  Sigil (Email)
+                  Email
                 </label>
                 <input
                   id="signup-email"
@@ -103,7 +103,7 @@ export default function SignupPage({ onAuth }) {
 
               <div className="auth-field">
                 <label className="auth-label" htmlFor="signup-password">
-                  Secret Rune (Password)
+                  Password
                 </label>
                 <input
                   id="signup-password"
@@ -117,12 +117,12 @@ export default function SignupPage({ onAuth }) {
               </div>
 
               <button className="auth-btn" type="submit" disabled={loading}>
-                {loading ? '⏳ Forging identity…' : '🛡️ Begin Quest'}
+                {loading ? 'Preparing workspace...' : 'Create workspace'}
               </button>
             </form>
 
             <p className="auth-footer">
-              Already a warrior?{' '}
+              Already have an account?{' '}
               <Link to="/login" className="auth-link">
                 Sign in
               </Link>

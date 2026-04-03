@@ -28,11 +28,11 @@ export default function HealPanel({ onHeal, result }) {
   }
 
   return (
-    <Card title="🧪 Potion Lab" subtitle="Brew a fix for your broken test — the alchemist awaits.">
+    <Card title="Repair Panel" subtitle="Submit a failing test and error trace to generate an updated version.">
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)]">
         <div className="space-y-3">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[var(--neon-pink)]" style={{ textShadow: '0 0 6px rgba(244,114,182,0.3)' }}>
-            💀 Failing Specimen
+          <div className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
+            Broken Test
           </div>
           <textarea
             className="panel-textarea"
@@ -40,8 +40,8 @@ export default function HealPanel({ onHeal, result }) {
             onChange={(e) => handleFailingTestChange(e.target.value)}
             placeholder="Paste the failing test code…"
           />
-          <div className="text-xs font-semibold uppercase tracking-widest text-[var(--neon-pink)]" style={{ textShadow: '0 0 6px rgba(244,114,182,0.3)' }}>
-            ⚠️ Error Curse
+          <div className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">
+            Failure Trace
           </div>
           <textarea
             className="panel-textarea panel-textarea--short"
@@ -50,14 +50,14 @@ export default function HealPanel({ onHeal, result }) {
             placeholder="Error message / stack trace…"
           />
           <Button variant="soft" type="button" onClick={submit} disabled={loading}>
-            {loading ? '⏳ Brewing…' : '🧪 Brew Potion'}
+            {loading ? 'Reviewing failure...' : 'Draft repair'}
           </Button>
         </div>
 
-        <div className="rounded-2xl border border-[var(--border)] p-4" style={{ background: 'rgba(10,10,10,0.5)' }}>
+        <div className="rounded-[1.4rem] border border-[var(--border)] p-4" style={{ background: 'rgba(255,255,255,0.78)' }}>
           <div className="mb-3 flex items-center justify-between gap-3">
-            <div className="text-sm font-semibold text-[var(--neon-green)]" style={{ textShadow: '0 0 6px rgba(16,185,129,0.3)' }}>
-              ✨ Healed Result
+            <div className="text-sm font-semibold text-[var(--neon-green)]">
+              Repaired Draft
             </div>
             <button
               type="button"
@@ -65,12 +65,12 @@ export default function HealPanel({ onHeal, result }) {
               onClick={() => navigator.clipboard.writeText(result || '')}
               disabled={!result}
             >
-              📋 Copy
+              Copy
             </button>
           </div>
-          <pre className="m-0 max-h-[280px] overflow-auto rounded-xl border border-[var(--border)] p-3 text-xs leading-6 text-[var(--text-strong)]"
-               style={{ background: 'rgba(10,10,10,0.5)' }}>
-            <code>{result || '⏳ Healed output will materialize here…'}</code>
+          <pre className="m-0 max-h-[280px] overflow-auto rounded-2xl border border-[var(--border)] p-3 text-xs leading-6 text-[var(--text-strong)]"
+               style={{ background: 'rgba(255,255,255,0.9)' }}>
+            <code>{result || 'Repaired output will appear here once the failing test and trace are analyzed.'}</code>
           </pre>
         </div>
       </div>

@@ -40,21 +40,21 @@ export default function LoginPage({ onAuth }) {
       <div className="auth-shell">
         <div className="auth-layout">
           <div className="auth-copy">
-            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--neon-cyan)]" style={{ textShadow: '0 0 10px rgba(6,182,212,0.4)' }}>
-              TestGen AI — Code Quest
+            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+              TestGen Platform
             </div>
             <h1 className="mt-4 font-heading text-6xl leading-none text-[var(--text-strong)]">
-              Enter the Arena.
+              Access your workspace.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted)]">
-              Sign in to your cyberpunk testing workspace. Generate tests, heal bugs, forge pipelines — and level up your coding mastery.
+              Generate tests, review quality, repair failures, and export CI workflows from one connected interface.
             </p>
           </div>
 
           <div className="auth-card">
             <div className="auth-header">
-              <h2 className="auth-title">⚔️ Sign In</h2>
-              <p className="auth-subtitle">Access your testing arena.</p>
+              <h2 className="auth-title">Sign In</h2>
+              <p className="auth-subtitle">Open your TestGen workspace.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
@@ -91,12 +91,12 @@ export default function LoginPage({ onAuth }) {
               </div>
 
               <button className="auth-btn" type="submit" disabled={loading}>
-                {loading ? '⏳ Entering arena…' : '⚡ Enter Arena'}
+                {loading ? 'Signing in...' : 'Enter workspace'}
               </button>
             </form>
 
             <p className="auth-footer">
-              New warrior?{' '}
+              New here?{' '}
               <Link to="/signup" className="auth-link">
                 Create account
               </Link>

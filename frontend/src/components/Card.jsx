@@ -3,7 +3,7 @@ export default function Card({ title, subtitle, right, children }) {
     <section className="glass-card">
       <header className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <div className="font-heading text-lg tracking-wide text-[var(--neon-cyan)]" style={{ textShadow: '0 0 8px rgba(6,182,212,0.3)' }}>
+          <div className="font-heading text-xl tracking-[0.01em] text-[var(--text-strong)]">
             {title}
           </div>
           {subtitle ? <div className="mt-1 text-sm text-[var(--muted)]">{subtitle}</div> : null}

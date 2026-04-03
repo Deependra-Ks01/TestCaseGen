@@ -53,7 +53,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "testgen.wsgi.application"
+WSGI_APPLICATION = "testgen.wsgi.app"
 
 
 def _db_from_env():
@@ -87,7 +87,15 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOW_ALL_ORIGINS = True
+_cors_allowed_origins = [
+    origin.strip()
+    for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+    if origin.strip()
+]
+CORS_ALLOW_ALL_ORIGINS = not _cors_allowed_origins
+CORS_ALLOWED_ORIGINS = _cors_allowed_origins
+
+SESSION_RETENTION_DAYS = int(os.getenv("SESSION_RETENTION_DAYS", "30"))
 
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [

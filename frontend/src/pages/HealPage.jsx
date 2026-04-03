@@ -18,14 +18,14 @@ export default function HealPage({ provider }) {
   return (
     <>
       <div className="mb-6 border-b border-[var(--border)] pb-5">
-        <div className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">
-          Quest Log
+        <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+          Test Repair
         </div>
         <h2 className="mt-2 font-heading text-3xl tracking-wide text-[var(--text-strong)]">
-          🧪 Potion Lab
+          Fix failing tests.
         </h2>
         <p className="mt-1 text-sm text-[var(--muted)]">
-          Brew a fix for your broken tests — paste the failing code and its error curseu2026 the alchemist awaits.
+          Paste a failing test and the related error output to generate a repaired version.
         </p>
       </div>
 

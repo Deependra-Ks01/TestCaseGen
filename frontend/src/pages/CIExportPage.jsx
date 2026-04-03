@@ -18,14 +18,14 @@ export default function CIExportPage({ tests }) {
   return (
     <>
       <div className="mb-6 border-b border-[var(--border)] pb-5">
-        <div className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">
-          Quest Log
+        <div className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--accent)]">
+          CI Export
         </div>
         <h2 className="mt-2 font-heading text-3xl tracking-wide text-[var(--text-strong)]">
-          🔨 The Forge
+          Export the pipeline.
         </h2>
         <p className="mt-1 text-sm text-[var(--muted)]">
-          Forge CI/CD workflow artifacts from your generated test arsenal.
+          Convert generated tests into a workflow configuration ready for CI.
         </p>
       </div>
 

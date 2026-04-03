@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+from datetime import timedelta
+import os
+
+from django.conf import settings
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -77,3 +82,27 @@ class SessionsView(APIView):
     def get(self, request):
         qs = TestGenSession.objects.order_by("-created_at")[:20]
         return Response(SessionSerializer(qs, many=True).data)
+
+
+class PurgeExpiredSessionsView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        expected = os.getenv("CRON_SECRET", "").strip()
+        provided = request.headers.get("Authorization", "")
+
+        if expected:
+            if provided != f"Bearer {expected}":
+                return Response({"detail": "Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        cutoff = timezone.now() - timedelta(days=getattr(settings, "SESSION_RETENTION_DAYS", 30))
+        deleted_count, _ = TestGenSession.objects.filter(created_at__lt=cutoff).delete()
+
+        return Response(
+            {
+                "deleted": deleted_count,
+                "retention_days": getattr(settings, "SESSION_RETENTION_DAYS", 30),
+                "cutoff": cutoff.isoformat(),
+            }
+        )

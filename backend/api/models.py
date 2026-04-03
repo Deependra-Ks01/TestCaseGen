@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class TestGenSession(models.Model):
     TEST_MODES = [("black_box", "Black Box"), ("white_box", "White Box")]
     INPUT_TYPES = [("code", "Code"), ("api", "API Endpoint"), ("story", "User Story")]
@@ -16,4 +17,4 @@ class TestGenSession(models.Model):
     scores = models.JSONField(null=True)
     coverage_report = models.JSONField(null=True)
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
